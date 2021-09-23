@@ -10,9 +10,11 @@ var currentTime = moment().hours();
 
 for (let i = 9; i <= 17; i++) {
   var getStorage = localStorage.getItem(i);
-  $("#" + i)
-    .siblings("textarea")
-    .val(getStorage);
+  if (getStorage != null && getStorage != "") {
+    $("#" + i)
+      .siblings("textarea")
+      .val(getStorage);
+  }
   if (i > currentTime) {
     $("#" + i)
       .siblings("textarea")
